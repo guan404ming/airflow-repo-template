@@ -28,9 +28,20 @@ Simple Apache Airflow 3 template with Docker, uv, and ruff.
 make start-airflow
 ```
 
-Access the UI at http://localhost:8080 (username: `admin`, password: `admin`)
+### 2. Get Your Admin Password
 
-### 2. Local Development (Optional)
+Airflow 3 auto-generates a secure password for the `admin` user. Find it with:
+
+```bash
+docker compose exec airflow-api-server cat /opt/airflow/simple_auth_manager_passwords.json.generated
+```
+
+Access the UI at http://localhost:8080
+
+- **Username:** `admin`
+- **Password:** (use the password from the command above)
+
+### 3. Local Development (Optional)
 
 ```bash
 uv sync
