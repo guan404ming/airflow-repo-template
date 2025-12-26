@@ -8,8 +8,8 @@ dependencies = [
     "apache-airflow-providers-standard>=1.0.0",
 ]
 
-[project.optional-dependencies]
-dev = ["ruff>=0.8.0"]
+[dependency-groups]
+dev = ["ruff>=0.14.10"]
 
 [tool.ruff.lint]
 extend-select = ["AIR"]
