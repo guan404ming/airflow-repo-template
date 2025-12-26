@@ -8,7 +8,6 @@ Simple Apache Airflow 3 template with Docker, uv, and ruff.
 - **uv** - Fast Python package manager
 - **ruff** - Fast linter and formatter
 - **Docker** - Local development environment
-- **pytest** - Testing framework
 
 ## Project Structure
 
@@ -16,7 +15,6 @@ Simple Apache Airflow 3 template with Docker, uv, and ruff.
 .
 ├── dags/               # DAG definitions
 ├── plugins/            # Custom plugins
-├── tests/              # Tests
 ├── pyproject.toml      # Dependencies
 ├── Dockerfile          # Container definition
 ├── docker-compose.yaml # Docker services
@@ -53,6 +51,5 @@ make logs             # View logs
 # Code Quality
 make lint             # Run linter
 make format           # Format code
-make test             # Run tests
 make clean            # Clean artifacts
 ```

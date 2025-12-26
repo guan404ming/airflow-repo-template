@@ -1,11 +1,10 @@
-.PHONY: help install install-dev lint format test clean start-airflow stop-airflow restart-airflow rebuild-airflow reset-airflow logs
+.PHONY: help install lint format clean start-airflow stop-airflow restart-airflow rebuild-airflow reset-airflow logs
 
 help:
 	@echo "Available commands:"
 	@echo "  make install          - Install production dependencies with uv"
 	@echo "  make lint             - Run ruff linter"
 	@echo "  make format           - Format code with ruff"
-	@echo "  make test             - Run pytest tests"
 	@echo "  make start-airflow    - Build and start Airflow services"
 	@echo "  make stop-airflow     - Stop Airflow services"
 	@echo "  make restart-airflow  - Restart Airflow services"
@@ -23,12 +22,6 @@ lint:
 format:
 	ruff format dags/ plugins/ tests/
 	ruff check --fix dags/ plugins/ tests/
-
-test:
-	pytest
-
-test-docker:
-	docker compose run --rm airflow-webserver pytest /opt/airflow/tests
 
 start-airflow:
 	docker compose up -d

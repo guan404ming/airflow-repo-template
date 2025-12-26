@@ -10,8 +10,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.0.0",
-    "pytest-cov>=4.1.0",
     "ruff>=0.8.0",
 ]
 
@@ -51,13 +49,3 @@ ignore = [
 quote-style = "double"
 indent-style = "space"
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = "test_*.py"
-python_classes = "Test*"
-python_functions = "test_*"
-addopts = "-v --cov=dags --cov=plugins --cov-report=term-missing"
-
-[tool.coverage.run]
-source = ["dags", "plugins"]
-omit = ["*/tests/*", "*/__pycache__/*"]
