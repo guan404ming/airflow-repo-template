@@ -2,8 +2,8 @@
 
 from datetime import datetime, timedelta
 
-from airflow.decorators import dag, task
 from airflow.providers.standard.operators.bash import BashOperator
+from airflow.sdk import dag, task
 
 
 @dag(
@@ -39,7 +39,7 @@ def example_dag():
         return {"status": "success", "count": len(data["transformed_data"])}
 
     # Traditional operator example
-    bash_task = BashOperator(
+    bash_example = BashOperator(
         task_id="bash_example",
         bash_command='echo "Hello from Airflow 3!"',
     )
@@ -47,10 +47,10 @@ def example_dag():
     # Define task dependencies
     extracted_data = extract()
     transformed_data = transform(extracted_data)
-    load_result = load(transformed_data)
+    load(transformed_data)
 
     # Set dependencies with traditional operator
-    bash_task >> extracted_data
+    bash_example >> extracted_data
 
 
 # Instantiate the DAG

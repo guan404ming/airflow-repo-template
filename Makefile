@@ -14,14 +14,14 @@ help:
 	@echo "  make clean            - Clean up build artifacts"
 
 install:
-	uv pip install -e .
+	uv pip install -r pyproject.toml
 
 lint:
-	ruff check dags/ plugins/ tests/
+	uv run ruff check dags/
 
 format:
-	ruff format dags/ plugins/ tests/
-	ruff check --fix dags/ plugins/ tests/
+	uv run ruff format dags/
+	uv run ruff check --fix dags/
 
 start-airflow:
 	docker compose up -d

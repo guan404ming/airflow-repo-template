@@ -14,7 +14,6 @@ Simple Apache Airflow 3 template with Docker, uv, and ruff.
 ```
 .
 ├── dags/               # DAG definitions
-├── plugins/            # Custom plugins
 ├── pyproject.toml      # Dependencies
 ├── Dockerfile          # Container definition
 ├── docker-compose.yaml # Docker services

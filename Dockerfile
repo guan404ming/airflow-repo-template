@@ -11,8 +11,7 @@ USER airflow
 COPY pyproject.toml /opt/airflow/
 
 # Install dependencies using uv
-RUN uv pip install --system -e /opt/airflow/
+RUN cd /opt/airflow && uv pip install --system -r pyproject.toml
 
-# Copy DAGs and plugins
+# Copy DAGs
 COPY --chown=airflow:root dags /opt/airflow/dags
-COPY --chown=airflow:root plugins /opt/airflow/plugins

@@ -31,7 +31,6 @@ services:
     user: "0:0"
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./plugins:/opt/airflow/plugins
     command: |
       bash -c "
         airflow db migrate &&
@@ -63,7 +62,6 @@ services:
       <<: *airflow-common-env
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./plugins:/opt/airflow/plugins
       - ./logs:/opt/airflow/logs
 
   airflow-scheduler:
@@ -83,7 +81,6 @@ services:
       <<: *airflow-common-env
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./plugins:/opt/airflow/plugins
       - ./logs:/opt/airflow/logs
 
 volumes:
